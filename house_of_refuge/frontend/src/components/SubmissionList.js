@@ -197,7 +197,11 @@ export const SubmissionList = (
           <Pagination className={"mb-0"}>
             <Pagination.First disabled={page <= 1} onClick={() => setPage(1)} />
             <Pagination.Prev disabled={page <= 1} onClick={() => setPage(p => p - 1)} />
+
+            { page > 1 && <Pagination.Item>{page - 1}</Pagination.Item> }
             <Pagination.Item active>{page}</Pagination.Item>
+            { page !== lastPage && <Pagination.Item>{page + 1}</Pagination.Item> }
+
             <Pagination.Next disabled={page >= lastPage} onClick={() => setPage(p => p + 1)} />
             <Pagination.Last disabled={page >= lastPage} onClick={() => setPage(lastPage)} />
           </Pagination>
